@@ -35,9 +35,9 @@ interface PageHeaderProps {
 }
 
 const statusColors = {
-  published: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  draft: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-  wip: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  published: "bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20",
+  draft: "bg-yellow-100 text-yellow-700 border-yellow-300 dark:bg-yellow-500/10 dark:text-yellow-400 dark:border-yellow-500/20",
+  wip: "bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20",
 };
 
 export function PageHeader({
@@ -51,7 +51,7 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <motion.div
-      className="mb-16 pb-12 border-b border-white/[0.07]"
+      className="mb-16 pb-12 border-b border-border"
       variants={staggerContainer(0.08)}
       initial="hidden"
       animate="show"
@@ -118,7 +118,7 @@ export function PageHeader({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[11px] px-2.5 py-1 rounded-full bg-white/[0.05] text-ink-subtle border border-white/[0.07]"
+              className="text-[11px] px-2.5 py-1 rounded-full bg-canvas-overlay text-ink-subtle border border-border"
             >
               {tag}
             </span>

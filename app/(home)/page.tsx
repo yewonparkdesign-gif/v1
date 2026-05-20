@@ -87,7 +87,7 @@ export default function HomePage() {
     <div className="min-h-full">
 
       {/* Hero */}
-      <div className="relative overflow-hidden border-b border-white/[0.07]">
+      <div className="relative overflow-hidden border-b border-border">
         {/* Ambient atmosphere */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-20 left-1/3 w-[700px] h-[500px] rounded-full bg-blue-500/[0.07] blur-[140px]" />
@@ -170,7 +170,7 @@ export default function HomePage() {
             <motion.div key={section.title} variants={fadeUp}>
               <Link
                 href={section.href}
-                className="group block surface p-6 hover:border-white/[0.14] hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
+                className="group block surface p-6 hover:border-border-strong hover:shadow-[0_8px_40px_rgba(0,0,0,0.15)] transition-all duration-300"
               >
                 <div className={cn("w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center mb-5 text-ink-muted group-hover:text-ink transition-colors", section.color)}>
                   {section.icon}
@@ -193,7 +193,7 @@ export default function HomePage() {
                   {section.items.map((item) => (
                     <span
                       key={item}
-                      className="text-[11px] px-2 py-0.5 rounded-md bg-white/[0.04] text-ink-subtle border border-white/[0.06]"
+                      className="text-[11px] px-2 py-0.5 rounded-md bg-canvas-overlay text-ink-subtle border border-border"
                     >
                       {item}
                     </span>
@@ -215,7 +215,7 @@ export default function HomePage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease }}
-          className="mt-16 p-8 rounded-2xl bg-canvas-raised border border-white/[0.07] flex flex-col md:flex-row gap-8 md:items-center"
+          className="mt-16 p-8 rounded-2xl bg-canvas-raised border border-border flex flex-col md:flex-row gap-8 md:items-center"
         >
           <div className="flex-1">
             <div className="text-[11px] font-bold uppercase tracking-widest text-ink-subtle mb-3">About this system</div>

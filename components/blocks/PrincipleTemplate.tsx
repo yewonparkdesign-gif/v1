@@ -44,7 +44,7 @@ export function PrincipleTemplate({ page }: PrincipleTemplateProps) {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="my-10 p-6 rounded-2xl bg-canvas-raised border border-white/[0.07]"
+          className="my-10 p-6 rounded-2xl bg-canvas-raised border border-border"
         >
           <div className="text-[11px] font-semibold uppercase tracking-widest text-ink-subtle mb-4">
             Key Ideas

@@ -31,9 +31,9 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
     case "heading": {
       const Tag = `h${block.level}` as "h2" | "h3" | "h4";
       const styles = {
-        h2: "text-[1.75rem] font-bold tracking-tight text-ink mt-14 mb-5 pb-3 border-b border-white/[0.07]",
+        h2: "text-[1.75rem] font-bold tracking-tight text-ink mt-14 mb-5 pb-3 border-b border-border",
         h3: "text-[1.25rem] font-semibold text-ink mt-10 mb-4",
-        h4: "text-[1rem] font-semibold text-ink-muted uppercase tracking-wider mt-8 mb-3",
+        h4: "text-[1rem] font-semibold text-ink-subtle uppercase tracking-wider mt-8 mb-3",
       };
       return (
         <motion.div
@@ -81,7 +81,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           viewport={viewport}
           className="my-8"
         >
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-canvas-raised aspect-video">
+          <div className="relative rounded-2xl overflow-hidden border border-border bg-canvas-raised aspect-video">
             {block.image.src ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -170,10 +170,10 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="my-6 rounded-xl overflow-hidden border border-white/[0.07]"
+          className="my-6 rounded-xl overflow-hidden border border-border"
         >
           {block.label && (
-            <div className="px-4 py-2 bg-canvas-overlay border-b border-white/[0.07] text-[11px] text-ink-subtle font-mono">
+            <div className="px-4 py-2 bg-canvas-overlay border-b border-border text-[11px] text-ink-subtle font-mono">
               {block.label}
             </div>
           )}
@@ -192,7 +192,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="my-10 border-white/[0.07] origin-left"
+          className="my-10 border-border origin-left"
         />
       );
 

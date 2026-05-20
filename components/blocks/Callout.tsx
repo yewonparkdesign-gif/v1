@@ -13,7 +13,7 @@ const styles: Record<CalloutVariant, { bg: string; border: string; label: string
   info: { bg: "bg-blue-500/[0.08]", border: "border-blue-500/20", label: "Note" },
   warning: { bg: "bg-yellow-500/[0.08]", border: "border-yellow-500/20", label: "Warning" },
   insight: { bg: "bg-violet-500/[0.08]", border: "border-violet-500/20", label: "Insight" },
-  note: { bg: "bg-white/[0.04]", border: "border-white/[0.08]", label: "Note" },
+  note: { bg: "bg-canvas-overlay", border: "border-border", label: "Note" },
 };
 
 function CalloutIcon({ variant }: { variant: CalloutVariant }) {

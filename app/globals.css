@@ -6,6 +6,69 @@
   :root {
     --font-sans: "Inter", system-ui, sans-serif;
     --font-mono: "JetBrains Mono", monospace;
+
+    /* Light mode (default) */
+    --canvas:         #f5f5f7;
+    --canvas-soft:    #ededf2;
+    --canvas-raised:  #e8e8ef;
+    --canvas-overlay: #dddde8;
+
+    --ink:            #0a0a0f;
+    --ink-muted:      #44445a;
+    --ink-subtle:     #707088;
+    --ink-faint:      #c0c0d0;
+
+    --border:         rgba(0,0,0,0.08);
+    --border-strong:  rgba(0,0,0,0.14);
+
+    --glass-bg:       rgba(255,255,255,0.70);
+    --glass-border:   rgba(0,0,0,0.08);
+    --glass-subtle-bg: rgba(255,255,255,0.40);
+    --glass-subtle-border: rgba(0,0,0,0.05);
+
+    --surface-bg:     #e8e8ef;
+    --surface-raised-bg: #dddde8;
+
+    --scrollbar-thumb: rgba(0,0,0,0.12);
+    --scrollbar-hover: rgba(0,0,0,0.20);
+
+    --selection-bg:   rgba(0,112,243,0.18);
+    --selection-color: #0a0a0f;
+
+    --text-gradient-from: #0a0a0f;
+    --text-gradient-to:   #44445a;
+  }
+
+  .dark {
+    --canvas:         #0a0a0f;
+    --canvas-soft:    #0f0f18;
+    --canvas-raised:  #141420;
+    --canvas-overlay: #1a1a28;
+
+    --ink:            #f0f0f5;
+    --ink-muted:      #9090a8;
+    --ink-subtle:     #60607a;
+    --ink-faint:      #30303f;
+
+    --border:         rgba(255,255,255,0.07);
+    --border-strong:  rgba(255,255,255,0.14);
+
+    --glass-bg:       rgba(255,255,255,0.06);
+    --glass-border:   rgba(255,255,255,0.08);
+    --glass-subtle-bg: rgba(255,255,255,0.03);
+    --glass-subtle-border: rgba(255,255,255,0.06);
+
+    --surface-bg:     #141420;
+    --surface-raised-bg: #1a1a28;
+
+    --scrollbar-thumb: rgba(255,255,255,0.10);
+    --scrollbar-hover: rgba(255,255,255,0.18);
+
+    --selection-bg:   rgba(0,112,243,0.30);
+    --selection-color: #f0f0f5;
+
+    --text-gradient-from: #f0f0f5;
+    --text-gradient-to:   #9090a8;
   }
 
   * {
@@ -19,17 +82,18 @@
   }
 
   body {
-    background-color: #0a0a0f;
-    color: #f0f0f5;
+    background-color: var(--canvas);
+    color: var(--ink);
     font-family: var(--font-sans);
     min-height: 100dvh;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   /* Scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+  ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
 
   /* Hide scrollbar utility */
   .scrollbar-none { scrollbar-width: none; }
@@ -37,28 +101,28 @@
 
   /* Selection */
   ::selection {
-    background: rgba(0,112,243,0.3);
-    color: #f0f0f5;
+    background: var(--selection-bg);
+    color: var(--selection-color);
   }
 }
 
 @layer utilities {
   .glass {
-    background: rgba(255,255,255,0.06);
+    background: var(--glass-bg);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid var(--glass-border);
   }
 
   .glass-subtle {
-    background: rgba(255,255,255,0.03);
+    background: var(--glass-subtle-bg);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-subtle-border);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #f0f0f5 0%, #9090a8 100%);
+    background: linear-gradient(135deg, var(--text-gradient-from) 0%, var(--text-gradient-to) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -76,15 +140,15 @@
   }
 
   .surface {
-    background: #141420;
-    border: 1px solid rgba(255,255,255,0.07);
+    background: var(--surface-bg);
+    border: 1px solid var(--border);
     border-radius: 1rem;
   }
 
   .surface-raised {
-    background: #1a1a28;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--surface-raised-bg);
+    border: 1px solid var(--border-strong);
     border-radius: 1rem;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
   }
 }

@@ -4,6 +4,7 @@ import { Sidebar, MobileDrawer } from "@/components/layout/Sidebar";
 import { TopBar } from "@/components/layout/TopBar";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { MobileNavProvider } from "@/components/layout/MobileNavProvider";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -28,8 +29,15 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var d=document.documentElement;if(t==='light'){d.classList.remove('dark')}else if(t==='dark'){d.classList.add('dark')}else if(window.matchMedia('(prefers-color-scheme: light)').matches){d.classList.remove('dark')}else{d.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
       </head>
       <body>
+        <ThemeProvider>
         <MobileNavProvider>
           <div className="flex h-dvh overflow-hidden">
             <Sidebar />
@@ -42,6 +50,7 @@ export default function RootLayout({
             </div>
           </div>
         </MobileNavProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
